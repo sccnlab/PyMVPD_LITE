@@ -4,7 +4,7 @@ import numpy as np
 import nibabel as nib
 import itertools as it
 from mvpd.dataloader.loader_regression import ROI_Dataset
-from mvpd.dimension_reduction import DR_PCA
+from mvpd.dimension_reduction import pca
 from mvpd.func_regression.PCA_LR import PCA_LR
 from mvpd.evaluation import var_expl
 from mvpd.viz import viz_map
@@ -29,7 +29,7 @@ def run_PCA_LR(model_type, sub, total_run, num_pc, roidata_save_dir, roi_1_name,
         ROI_2_test = roi_test[:]['ROI_2']
     
         # Dimensionality reduction: PCA
-        ROI_1_train_pca, ROI_2_train_pca, ROI_1_test_pca, ROI_2_test_pca = DR_PCA(num_pc, ROI_1_train, ROI_2_train, ROI_1_test, ROI_2_test)
+        ROI_1_train_pca, ROI_2_train_pca, ROI_1_test_pca, ROI_2_test_pca = pca.DR_PCA(num_pc, ROI_1_train, ROI_2_train, ROI_1_test, ROI_2_test)
     
         # Linear regresson model
         predict_ROI_2_test, err_LR = PCA_LR(ROI_1_train_pca, ROI_2_train_pca, ROI_1_test_pca, ROI_2_train, ROI_2_test, num_pc) 

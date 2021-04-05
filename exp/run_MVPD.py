@@ -36,7 +36,7 @@ roidata_save_dir='./testdata/roi_data/'
 results_save_dir='./results/'
 
 # MVPD Model
-model_type='PCA_LR' # ['PCA_LR', 'L2_LR']
+model_type='L2_LR' # ['PCA_LR', 'L2_LR']
 
 # PCA + Linear Regression
 num_pc=3 # number of principal components used (only for PCA_LR)
@@ -50,7 +50,7 @@ save_prediction=False # default
 """
 Step 2 - Data Loading
 """
-#data_loading.load_data(sub, total_run, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, roidata_save_dir)
+data_loading.load_data(sub, total_run, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, roidata_save_dir)
 
 """
 Step 3 - Analysis Execution
