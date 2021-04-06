@@ -1,6 +1,6 @@
-from mvpd.MVPD_L2_LR import run_L2_LR
-from mvpd.MVPD_PCA_LR import run_PCA_LR
-from mvpd.avgrun_regression import avg_runs
+from mvpdlite.MVPD_L2_LR import run_L2_LR
+from mvpdlite.MVPD_PCA_LR import run_PCA_LR
+from mvpdlite.avgrun_regression import avg_runs
 
 def MVPD_exec(model_type, sub, total_run, alpha, num_pc, roidata_save_dir, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, results_save_dir, save_prediction):
     if model_type == "L2_LR":

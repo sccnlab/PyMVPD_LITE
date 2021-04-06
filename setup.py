@@ -23,7 +23,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    packages=find_packages(include=['mvpd', 'mvpd.*']),
+    packages=find_packages(include=['mvpdlite', 'mvpdlite.*']),
     install_requires=requirements,
 )
 

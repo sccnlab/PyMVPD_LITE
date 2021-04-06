@@ -1,6 +1,6 @@
 import os, sys
 sys.path.append("..")
-from mvpd import data_loading, model_exec
+from mvpdlite import data_loading, model_exec
 
 """
 Step 1 - Analysis Specification
