@@ -28,8 +28,8 @@ filepath_mask2='./testdata/GM_thr0.1_bin.nii.gz'
 
 base1=os.path.basename(filepath_mask1)
 base2=os.path.basename(filepath_mask2)
-roi_1_name=os.path.splitext(os.path.splitext(base1)[0])[0]
-roi_2_name=os.path.splitext(os.path.splitext(base2)[0])[0]
+roi_1_name=base1.split('.nii')[0]
+roi_2_name=base2.split('.nii')[0]
 
 # Output Directory
 roidata_save_dir='./testdata/roi_data/'
