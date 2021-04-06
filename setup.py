@@ -15,7 +15,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown", 
     keywords=["fMRI", "MVPD", "machine learning", "connectivity"],
-    url="https://github.com/pandamt/PyMVPD_LITE",
+    url="https://github.com/sccnlab/PyMVPD_LITE",
     classifiers=[
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
