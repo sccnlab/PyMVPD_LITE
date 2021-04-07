@@ -1,5 +1,4 @@
-import os, sys
-sys.path.append("..")
+import os
 from mvpdlite import data_loading, model_exec
 
 """
