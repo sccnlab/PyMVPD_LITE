@@ -46,7 +46,6 @@ import os
 from mvpdlite import data_loading, model_exec
 ```
 Step 1 - Analysis Specification
-Specify the subject whose data are to be analyzed, the total number of experimental runs, the functional data and ROI masks, the output directory, the type of MVPD model to be used and the model hyperparameters.
 ```
 sub='sub-01' # subject to analyze
 total_run=XX # total number of experimental runs
