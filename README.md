@@ -47,7 +47,7 @@ from mvpdlite import data_loading, model_exec
 ```
 Step 1 - Analysis Specification
 ```
-sub='sub-01' # the subject whose data are to be analyzed
+sub='sub-01' # subject whose data are to be analyzed
 total_run=XX # total number of experimental runs
 
 # Input functional Data
