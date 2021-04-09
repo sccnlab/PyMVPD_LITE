@@ -24,7 +24,7 @@ The following packages need to be installed to use PyMVPD LITE:
 * scikit-learn>=0.20.1
 * scipy>=1.1.0
 
-## Usage example
+## Tutorial
 ### Test Dataset
 [Data](https://github.com/sccnlab/PyMVPD_LITE/tree/main/exp/testdata) of one subject from the [_StudyForrest_](http://studyforrest.org) dataset.
 
@@ -43,6 +43,7 @@ python3 run_MVPD.py
 
 We have also provided a [tutorial](https://github.com/sccnlab/PyMVPD_LITE/blob/main/exp/PyMVPD_LITE_Tutorial.ipynb) in jupyter notebook. Feel free to check it out!
 
+## Customization
 To generate your own scripts, please follow the three steps:
 ```
 import os
