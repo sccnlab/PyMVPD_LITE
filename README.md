@@ -40,7 +40,10 @@ To give a quick try for MVPD analysis, you can directly run our example script [
 cd exp/
 python3 run_MVPD.py
 ```
-You can also generate your own scripts following the three steps:
+
+We have also provided a [tutorial](https://github.com/sccnlab/PyMVPD_LITE/blob/main/exp/PyMVPD_LITE_Tutorial.ipynb) in jupyter notebook. Feel free to check it out!
+
+To generate your own scripts, please follow the three steps:
 ```
 import os
 from mvpdlite import data_loading, model_exec
