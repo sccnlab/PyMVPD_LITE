@@ -37,13 +37,13 @@ results_save_dir='./results/'
 # MVPD Model
 model_type='L2_LR' # ['PCA_LR', 'L2_LR']
 
-# PCA + Linear Regression
-num_pc=3 # number of principal components used (only for PCA_LR)
+# only for PCA_LR
+num_pc=3 # number of principal components used
 
-# L2 Regularized Linear Regression
-alpha=0.01 # regularization strength (only for L2_LR)
+# only for L2_LR
+alpha=0.01 # regularization strength
 
-# Save Data
+# Save Settings
 save_prediction=False # default
 
 """
