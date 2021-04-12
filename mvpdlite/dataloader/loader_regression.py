@@ -6,7 +6,6 @@ import itertools as it
 
 # Implement the data loader.
 class ROI_Dataset(object):
-    """cope1(face) dataset."""
     def __init__(self, ROIs_1=[], ROIs_2=[]):
         'Initialization'
         self.ROIs_1 = []
