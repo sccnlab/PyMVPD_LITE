@@ -17,7 +17,6 @@ def MVPD_exec(model_type, sub, total_run, alpha, num_pc, roidata_save_dir, roi_1
  
     print("\naverage results across runs")
     avg_runs(model_type, sub, total_run, results_save_dir)
-    print("\ndone!")
 
     log_filename = results_save_dir+sub+"_"+model_type+"_log.txt"
     log_file = open(log_filename, 'w')
@@ -31,3 +30,5 @@ def MVPD_exec(model_type, sub, total_run, alpha, num_pc, roidata_save_dir, roi_1
     elif model_type == "PCA_LR":
        log_file.write("num_pc = "+str(num_pc)+".\n")
     log_file.close()
+
+    print("\ndone!")
