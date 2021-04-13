@@ -16,7 +16,7 @@ def MVPD_exec(model_type, sub, total_run, alpha, num_pc, roidata_save_dir, roi_1
        sys.exit()
  
     print("\naverage results across runs")
-    avg_runs(model_type, sub, total_run, filepath_mask2, results_save_dir)
+    avg_runs(model_type, sub, total_run, results_save_dir)
     print("\ndone!")
 
     log_filename = results_save_dir+sub+"_"+model_type+"_log.txt"

@@ -4,7 +4,7 @@ Average variance explained across runs for regression models.
 import numpy as np
 import nibabel as nib
 
-def avg_runs(model_type, sub, total_run, filepath_mask2, results_save_dir):
+def avg_runs(model_type, sub, total_run, results_save_dir):
     var_data_total = []
     
     for testrun in range(1, total_run+1):
