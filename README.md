@@ -7,6 +7,9 @@ PyMVPD LITE: A LITE version of MultiVariate Pattern Dependence (MVPD) analysis i
 * L2_LR: linear regression model with L2 regularization
 * PCA_LR: linear regression model with no regularization after principal component analysis (PCA)
 
+## Workflow
+<img src="/PyMVPD_LITE_workflow.png" width="750"/>
+
 ## Installation & Dependencies
 The easiest way to install the package is to execute (possibly in a [new virtual environment](https://packaging.python.org/tutorials/installing-packages/#creating-and-using-virtual-environments)) the following command:
 ```
