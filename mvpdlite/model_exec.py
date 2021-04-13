@@ -1,3 +1,4 @@
+import sys
 from mvpdlite.MVPD_L2_LR import run_L2_LR
 from mvpdlite.MVPD_PCA_LR import run_PCA_LR
 from mvpdlite.avgrun_regression import avg_runs
@@ -10,6 +11,10 @@ def MVPD_exec(model_type, sub, total_run, alpha, num_pc, roidata_save_dir, roi_1
     elif model_type == "PCA_LR":
        print("\nstart running PCA_LR model for", sub)
        run_PCA_LR(model_type, sub, total_run, num_pc, roidata_save_dir, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, results_save_dir, save_prediction)
+    else:
+       print("\nError: model type unavailable!")
+       sys.exit()
+ 
     print("\naverage results across runs")
     avg_runs(model_type, sub, total_run, filepath_mask2, results_save_dir)
     print("\ndone!")
