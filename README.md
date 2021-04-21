@@ -7,7 +7,7 @@ PyMVPD LITE: A LITE version of MultiVariate Pattern Dependence (MVPD) analysis i
 * L2_LR: linear regression model with L2 regularization
 * PCA_LR: linear regression model with no regularization after principal component analysis (PCA)
 
-In addition to these pre-implemented models, you can also customize your own MVPD models by adding scripts under [mvpd/](https://github.com/sccnlab/PyMVPD_LITE/tree/main/mvpdlite).
+In addition to these pre-implemented models, you can also customize your own MVPD models by adding scripts under [mvpdlite/](https://github.com/sccnlab/PyMVPD_LITE/tree/main/mvpdlite).
 
 ## Workflow
 <img src="/PyMVPD_LITE_workflow.png" width="750"/>
