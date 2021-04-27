@@ -1,6 +1,6 @@
 # PyMVPD_LITE
 
-This is a lite version of [PyMVPD/](https://github.com/sccnlab/PyMVPD) to model the multivariate interactions between brain regions using fMRI data. You can find a description of the MVPD method in this article: https://doi.org/10.1371/journal.pcbi.1005799.
+This is a lite version of [PyMVPD](https://github.com/sccnlab/PyMVPD) to model the multivariate interactions between brain regions using fMRI data. You can find a description of the MVPD method in this article: https://doi.org/10.1371/journal.pcbi.1005799.
 
 ## MVPD Model Family
 1. Linear Regression Models
