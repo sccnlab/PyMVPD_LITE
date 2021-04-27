@@ -1,6 +1,6 @@
-# PyMVPD LITE
+# PyMVPD_LITE
 
-PyMVPD LITE: A LITE version of MultiVariate Pattern Dependence (MVPD) analysis in Python
+This is a lite version of [PyMVPD/](https://github.com/sccnlab/PyMVPD) to model the multivariate interactions between brain regions using fMRI data. You can find a description of the MVPD method in this article: https://doi.org/10.1371/journal.pcbi.1005799.
 
 ## MVPD Model Family
 1. Linear Regression Models
