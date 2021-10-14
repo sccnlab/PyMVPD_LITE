@@ -1,6 +1,8 @@
 # PyMVPD_LITE
 
-This is a lite version of [PyMVPD](https://github.com/sccnlab/PyMVPD) to model the multivariate interactions between brain regions using fMRI data. You can find a description of the MVPD method in this article: https://doi.org/10.1371/journal.pcbi.1005799.
+This is a lite version of [PyMVPD](https://github.com/sccnlab/PyMVPD) to model the multivariate interactions between brain regions using fMRI data. You can find a description of the MVPD method in this [article](https://doi.org/10.1371/journal.pcbi.1005799).
+
+[NEW!] We added a preprint with detailed descriptions about the toolbox and example applications. Check it out [here](https://biorxiv.org/cgi/content/short/2021.10.12.464157v1)!
 
 ## MVPD Model Family
 1. Linear Regression Models
@@ -97,6 +99,31 @@ data_loading.load_data(sub, total_run, roi_1_name, roi_2_name, filepath_func, fi
 Step 3 - Analysis Execution
 ```
 model_exec.MVPD_exec(model_type, sub, total_run, alpha, num_pc, roidata_save_dir, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, results_save_dir, save_prediction)
+```
+
+## Citation
+PyMVPD has been used in:
+
+- PyMVPD: A toolbox for multivariate pattern dependence. [PDF](https://www.biorxiv.org/content/10.1101/2021.10.12.464157v1.full.pdf) <br/>
+Fang, M., Poskanzer, C., Anzellotti, S.
+
+- Identifying hubs that integrate responses across multiple category-selective regions.<br/>
+Fang, M., Aglinskas, A., Li, Y., Anzellotti, S. 
+
+If you plan to use the toolbox, please consider citing this.
+
+```
+@article {Fang2021.10.12.464157,
+	author = {Fang, Mengting and Poskanzer, Craig and Anzellotti, Stefano},
+	title = {PyMVPD: A toolbox for multivariate pattern dependence},
+	elocation-id = {2021.10.12.464157},
+	year = {2021},
+	doi = {10.1101/2021.10.12.464157},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2021/10/14/2021.10.12.464157},
+	eprint = {https://www.biorxiv.org/content/early/2021/10/14/2021.10.12.464157.full.pdf},
+	journal = {bioRxiv}
+}
 ```
 
 ## Contact
