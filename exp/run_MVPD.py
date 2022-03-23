@@ -42,7 +42,7 @@ model_type='L2_LR' # ['PCA_LR', 'L2_LR']
 num_pc=3 # number of principal components used
 
 # only for L2_LR
-alpha=0.01 # regularization strength
+alpha=0.001 # regularization strength
 
 # Save Settings
 save_prediction=False # default

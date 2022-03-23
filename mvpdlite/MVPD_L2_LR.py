@@ -34,8 +34,10 @@ def run_L2_LR(model_type, sub, total_run, alpha, roidata_save_dir, roi_1_name, r
            np.save(results_save_dir+sub+'_predict_ROI_2_'+model_type+'_testrun'+str(this_run)+'.npy', predict_ROI_2_test)
 
         # Evaluation: variance explained
-        varexpl = var_expl.eval_var_expl(err_LR, ROI_2_test)
-    
+	varexpl_nonzero, varexpl = var_expl.eval_var_expl(err_LR, ROI_2_test)
+        
         # Visualization
+        var_expl_map_nonzero, var_expl_img_nonzero = viz_map.cmetric_to_map(filepath_mask2, varexpl_nonzero)
         var_expl_map, var_expl_img = viz_map.cmetric_to_map(filepath_mask2, varexpl)
+        nib.save(var_expl_img_nonzero, results_save_dir+sub+'_var_expl_map_nonzero_'+model_type+'_testrun'+str(this_run)+'.nii.gz')
         nib.save(var_expl_img, results_save_dir+sub+'_var_expl_map_'+model_type+'_testrun'+str(this_run)+'.nii.gz')
