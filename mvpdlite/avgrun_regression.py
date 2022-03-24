@@ -4,11 +4,11 @@ Average variance explained across runs for regression models.
 import numpy as np
 import nibabel as nib
 
-def avg_runs(model_type, sub, total_run, results_save_dir):
+def avg_runs(model_type, sub, total_run, leave_k, results_save_dir):
     var_data_total_nonzero = []
     var_data_total = []
     
-    for testrun in range(1, total_run+1):
+    for testrun in range(1, total_run-leave_k+2):
         # nonzero variance explained (threshold above zero)
         data_dir_nonzero = results_save_dir+sub+'_var_expl_map_nonzero_'+model_type+'_testrun'+str(testrun)+'.nii.gz'
         var_map_nonzero = nib.load(data_dir_nonzero)

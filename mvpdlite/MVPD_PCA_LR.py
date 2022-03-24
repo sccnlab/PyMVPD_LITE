@@ -9,22 +9,22 @@ from mvpdlite.func_regression.PCA_LR import PCA_LR
 from mvpdlite.evaluation import var_expl
 from mvpdlite.viz import viz_map
 
-def run_PCA_LR(model_type, sub, total_run, num_pc, roidata_save_dir, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, results_save_dir, save_prediction):
+def run_PCA_LR(model_type, sub, total_run, leave_k, num_pc, roidata_save_dir, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, results_save_dir, save_prediction):
     # create output folder if not exists
     if not os.path.exists(results_save_dir):
            os.mkdir(results_save_dir)
     
-    for this_run in range(1, total_run+1):
-        print("test run:", this_run) 
+    for this_run in range(1, total_run-leave_k+2):
+        print("test run:", np.arange(this_run, this_run+leave_k)) 
         # Load functioanl data and ROI masks
         # Training 
         roi_train = ROI_Dataset()
-        roi_train.get_train(roidata_save_dir, roi_1_name, roi_2_name, this_run, total_run)
+        roi_train.get_train(roidata_save_dir, roi_1_name, roi_2_name, this_run, total_run, leave_k)
         ROI_1_train = roi_train[:]['ROI_1']
         ROI_2_train = roi_train[:]['ROI_2']
         # Testing 
         roi_test = ROI_Dataset()
-        roi_test.get_test(roidata_save_dir, roi_1_name, roi_2_name, this_run, total_run)
+        roi_test.get_test(roidata_save_dir, roi_1_name, roi_2_name, this_run, total_run, leave_k)
         ROI_1_test = roi_test[:]['ROI_1']
         ROI_2_test = roi_test[:]['ROI_2']
     

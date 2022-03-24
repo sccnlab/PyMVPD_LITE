@@ -42,7 +42,11 @@ model_type='L2_LR' # ['PCA_LR', 'L2_LR']
 num_pc=3 # number of principal components used
 
 # only for L2_LR
+crossValid=False # cross validation
 alpha=0.001 # regularization strength
+
+# leave k run out
+leave_k=1
 
 # Save Settings
 save_prediction=False # default
@@ -55,4 +59,4 @@ data_loading.load_data(sub, total_run, roi_1_name, roi_2_name, filepath_func, fi
 """
 Step 3 - Analysis Execution
 """
-model_exec.MVPD_exec(model_type, sub, total_run, alpha, num_pc, roidata_save_dir, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, results_save_dir, save_prediction)
+model_exec.MVPD_exec(model_type, sub, total_run, leave_k, alpha, crossValid, num_pc, roidata_save_dir, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, results_save_dir, save_prediction)
