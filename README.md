@@ -87,7 +87,11 @@ model_type='L2_LR' # ['PCA_LR', 'L2_LR']
 # Only for PCA_LR
 num_pc=3 # number of principal components used 
 # Only for L2_LR
+crossValid=False # cross validation
 alpha=0.01 
+
+# Leave k run out
+leave_k=1
 
 # Save predicted timecourses
 save_prediction=False # default
