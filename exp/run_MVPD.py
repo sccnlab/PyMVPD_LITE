@@ -45,7 +45,7 @@ num_pc=3 # number of principal components used
 crossValid=False # cross validation
 alpha=0.001 # regularization strength
 
-# leave k run out
+# Leave k run out
 leave_k=1
 
 # Save Settings
