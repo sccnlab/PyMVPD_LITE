@@ -44,7 +44,7 @@ params.reg_strength_list=[0.1,1.0,10.0] # RidgeCV: array of reg_strength values 
 """
 Step 2 - Data Loading
 """
-#data_loading.load_data(inputinfo)
+data_loading.load_data(inputinfo)
 
 """
 Step 3 - Analysis Execution
