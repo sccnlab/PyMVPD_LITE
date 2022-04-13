@@ -5,11 +5,17 @@ This is a lite version of [PyMVPD](https://github.com/sccnlab/PyMVPD) to model t
 [NEW!] We added a preprint with detailed descriptions about the toolbox and example applications. Check it out [here](https://biorxiv.org/cgi/content/short/2021.10.12.464157v1)!
 
 ## MVPD Model Family
-1. Linear Regression Models
-* L2_LR: linear regression model with L2 regularization
-* PCA_LR: linear regression model with no regularization after principal component analysis (PCA)
+1. Linear Regression (LR) Models
+Available built-in model components:
+* Dimensionality reduction: principal component analysis ([PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)), independent component analysis ([ICA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html))
+* Regularization: [Lasso](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html) (L1), [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html) (L2), [RidgeCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html) (L2 with build-in cross-validation)
+* Cross validation: leave k run out
 
-In addition to these pre-implemented models, you can also customize your own MVPD models by adding scripts under [mvpdlite/](https://github.com/sccnlab/PyMVPD_LITE/tree/main/mvpdlite).
+Example LR models:
+* L2_LR: linear regression model with L2 regularization
+* PCA_LR: linear regression model with PCA but no regularization
+
+In addition to these build-in functions, you can also customize your own MVPD models by adding scripts under [mvpdlite/](https://github.com/sccnlab/PyMVPD_LITE/tree/main/mvpdlite).
 
 ## Workflow
 <img src="/PyMVPD_LITE_workflow.png" width="750"/>
@@ -58,51 +64,41 @@ from mvpdlite import data_loading, model_exec
 ```
 Step 1 - Analysis Specification
 ```
-sub='sub-01' # subject whose data are to be analyzed
-total_run=XX # total number of experimental runs
-
-# Input functional Data
-filepath_func=[]
+# Model Input Info
+inputinfo=data_loading.structtype()
+inputinfo.sub='sub-01' # subject whose data are to be analyzed
+filepath_func=[] # input functional Data
 filepath_func+=['path/to/functional/data/run1.nii.gz']
 filepath_func+=['path/to/functional/data/run2.nii.gz']
 ......
 
-# Input predictor ROI mask and target ROI mask
-filepath_mask1='path/to/predictor/ROI/mask.nii.gz'
-filepath_mask2='path/to/target/ROI/mask.nii.gz'
+inputinfo.filepath_mask1='path/to/predictor/ROI/mask.nii.gz' # predictor ROI mask
+inputinfo.filepath_mask2='path/to/target/ROI/mask.nii.gz' # target ROI mask
 
-base1=os.path.basename(filepath_mask1)
-base2=os.path.basename(filepath_mask2)
-roi_1_name=base1.split('.nii')[0]
-roi_2_name=base2.split('.nii')[0]
+inputinfo.roidata_save_dir='path/to/save/roidata/' # output data directory
+inputinfo.results_save_dir='path/to/save/results/' # output model results directory
+inputinfo.save_prediction=False # whether to save predicted timecourses in the target ROI
 
-# Output Directory
-roidata_save_dir='path/to/save/roidata/'
-results_save_dir='path/to/save/results/'
+# MVPD Model Parameters
+params=data_loading.structtype()
+params.leave_k=1 # cross validation: leave k run out, default=1
+params.dim_reduction=True # whether to perform dimensionality reduction on input data
+params.dim_type='pca' # ['pca'(default), 'ica']
+params.num_dim=3 # number of dimensions after dimensionality reduction, default=3
 
-# Choose MVPD model
-model_type='L2_LR' # ['PCA_LR', 'L2_LR']
+params.lin_reg=True # whether to add regularization term
+params.reg_type='Ridge' # ['Ridge'(default), 'Lasso', 'RidgeCV']
+params.reg_strength=0.001 # regularization strength, default=0.001
+#params.reg_strength_list=[0.1,1.0,10.0] # only for RidgeCV: array of reg_strength values to try, default=(0.1,1.0,10.0)
 
-# Set model parameters
-# Only for PCA_LR
-num_pc=3 # number of principal components used 
-# Only for L2_LR
-crossValid=False # cross validation
-alpha=0.01 
-
-# Leave k run out
-leave_k=1
-
-# Save predicted timecourses
-save_prediction=False # default
 ```
 Step 2 - Data Loading
 ```
-data_loading.load_data(sub, total_run, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, roidata_save_dir)
+data_loading.load_data(inputinfo)
 ```
 Step 3 - Analysis Execution
 ```
-model_exec.MVPD_exec(model_type, sub, total_run, leave_k, alpha, crossValid, num_pc, roidata_save_dir, roi_1_name, roi_2_name, filepath_func, filepath_mask1, filepath_mask2, results_save_dir, save_prediction)
+model_exec.MVPD_exec(inputinfo, params)
 ```
 
 ## Citation
