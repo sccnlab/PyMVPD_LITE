@@ -11,9 +11,9 @@ Available built-in model components:
 * Regularization: [Lasso](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html) (L1), [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html) (L2), [RidgeCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html) (L2 with build-in cross-validation)
 * Cross validation: leave k run out
 
-Example LR models:
-* L2_LR: linear regression model with L2 regularization
-* PCA_LR: linear regression model with PCA but no regularization
+  Example LR models:
+  * L2_LR: linear regression model with L2 regularization
+  * PCA_LR: linear regression model with PCA but no regularization
 
 In addition to these build-in functions, you can also customize your own MVPD models by adding scripts under [mvpdlite/](https://github.com/sccnlab/PyMVPD_LITE/tree/main/mvpdlite).
 
