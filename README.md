@@ -12,10 +12,10 @@ Available built-in model components:
 * Cross validation: leave k run out
 
   Example LR models:
-  * L2_LR: linear regression model with L2 regularization
-  * PCA_LR: linear regression model with PCA but no regularization
+  * [L2_LR](https://github.com/sccnlab/PyMVPD_LITE/tree/main/exp/run_MVPD_L2_LR.py): linear regression model with L2 regularization
+  * [PCA_LR](https://github.com/sccnlab/PyMVPD_LITE/tree/main/exp/run_MVPD_PCA_LR.py): linear regression model with PCA but no regularization
 
-In addition to these build-in functions, you can also customize your own MVPD models by adding scripts under [mvpdlite/](https://github.com/sccnlab/PyMVPD_LITE/tree/main/mvpdlite).
+In addition to the above build-in functions, you can also customize your own functions by adding scripts under [mvpdlite/custom_func](https://github.com/sccnlab/PyMVPD_LITE/tree/main/mvpdlite/custom_func).
 
 ## Workflow
 <img src="/PyMVPD_LITE_workflow.png" width="750"/>
@@ -48,7 +48,7 @@ Target ROI: GM - gray matter.
 * Raw data were first preprocessed using [fMRIPrep](https://fmriprep.readthedocs.io/en/latest/index.html) and then denoised by using CompCor (see more details in [Fang et al. 2019](https://doi.org/10.31234/osf.io/qbx4m)).
 
 ### Example Analyses and Scripts
-To give a quick try for MVPD analysis, you can directly run our example script [run_MVPD.py](https://github.com/sccnlab/PyMVPD_LITE/blob/main/exp/run_MVPD.py):
+To give a quick try for MVPD analysis, you can directly run our example script [run_MVPD.py](https://github.com/sccnlab/PyMVPD_LITE/blob/main/exp/run_MVPD.py) or other pre-implemented models under [exp/](https://github.com/sccnlab/PyMVPD_LITE/blob/main/exp/) (e.g. run_MVPD_xxx.py):
 ```
 cd exp/
 python3 run_MVPD.py
@@ -82,14 +82,9 @@ inputinfo.save_prediction=False # whether to save predicted timecourses in the t
 # MVPD Model Parameters
 params=data_loading.structtype()
 params.leave_k=1 # cross validation: leave k run out, default=1
-params.dim_reduction=True # whether to perform dimensionality reduction on input data
-params.dim_type='pca' # ['pca'(default), 'ica']
-params.num_dim=3 # number of dimensions after dimensionality reduction, default=3
 
-params.lin_reg=True # whether to add regularization term
-params.reg_type='Ridge' # ['Ridge'(default), 'Lasso', 'RidgeCV']
-params.reg_strength=0.001 # regularization strength, default=0.001
-#params.reg_strength_list=[0.1,1.0,10.0] # only for RidgeCV: array of reg_strength values to try, default=(0.1,1.0,10.0)
+### LR model parameters
+......
 
 ```
 Step 2 - Data Loading
@@ -100,6 +95,64 @@ Step 3 - Analysis Execution
 ```
 model_exec.MVPD_exec(inputinfo, params)
 ```
+### Required Input information 
+- General model parameters
+  - **params.leave_k**
+    - This parameter determines the number of leave out runs in cross-validation.
+    - The default value is 1 (leave-one-run-out procedure).
+
+- LR model parameters
+  - **params.dim_reduction**: 
+    - This parameter determines whether dimensionality reduction is applied to the input data.
+    - It is only used if you are using a linear regression model by setting params.mode_class='LR'
+    - The default value is false.
+  - **params.dim_type**: 
+    - This parameter determines the type of the dimensionality reduction.
+    - It is only used if you are using a linear regression model and you set "params.dim_reduction=True".
+    - The available values are 'pca', 'ica', or the name of your custom dimensionality reduction method.
+    - The default value is 'pca'.
+  - **params.num_dim**:
+    - This parameter determines the number of dimensions to keep after dimensionality reduction.
+    - It is only used if you are using a linear regression model and you set "params.dim_reduction=True".
+    - The default value is 3.
+    
+  - **params.lin_reg**:
+    - This parameter determines whether to add a regularization term to the linear regression model.
+    - It is only used if you are using a linear regression model by setting params.mode_class='LR'.
+    - The default value is false.
+  - **params.reg_type**
+    - This parameter determines the type of regularization term that you want to add to the linear regression model.
+    - It is only used if you are using a linear regression model with regularization by setting "params.mode_class='LR', params.lin_reg=True".
+    - The available values are 'Ridge', 'Lasso', and 'RidgeCV'.
+    - The default value is 'Ridge'.
+  - **params.reg_strength**
+    - This parameter determines the regularization strength of the chosen regularization term.
+    - It is only used if you are using a linear regression model with regularization by setting "params.mode_class='LR', params.lin_reg=True".
+    - The default value is '0.001'.
+  - **params.reg_strength_list**
+    - This parameter determines the array of regularization strength values to try in the cross-validation for Ridge regression.
+    - It is only used if you are using a linear RidgeCV regression model by setting "params.mode_class='LR', params.lin_reg=True, params.reg_type='RidgeCV'".
+    - The default array is [0.1, 1.0, 10.0].
+
+- **inputinfo.sub**
+  - This variable specifies the subject whose data are to be analyzed.
+- **input.filepath_func**
+  - This variable specifies the list of paths to the directories containing processed functional data.
+- **inputinfo.filepath_mask1**
+  - This variable specifies the path to the directory containing the predictor ROI mask.
+- **inputinfo.filepath_mask2**
+  - This variable specifies the path to the directory containing the target ROI mask.
+- **inputinfo.roidata_save_dir**
+  - This variable specifies the path to the directory where the extracted functional data will be saved.
+- **inputinfo.results_save_dir**
+  - This variable specifies the path to the directory where the results will be saved.
+- **inputinfo.save_prediction** 
+  - This variable specifies whether to save predicted timecourses in the target ROI.
+
+### List of Model Parameters
+
+NOTICE: Remember to set the value of the parameter manually if you do not want to use the default value.
+
 
 ## Citation
 PyMVPD has been used in:
