@@ -11,7 +11,6 @@ def MVPD_exec(inputinfo, params):
     inputinfo - model input info structure
     params - model parameters structure
     """
-
     # create output folder if not exists
     if not os.path.exists(inputinfo.results_save_dir):
            os.mkdir(inputinfo.results_save_dir)
