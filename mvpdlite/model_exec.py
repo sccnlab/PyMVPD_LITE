@@ -4,6 +4,14 @@ from mvpdlite.MVPD_lin_reg import run_lin_reg
 from mvpdlite.avgrun_regression import avg_runs
 
 def MVPD_exec(inputinfo, params):
+    """
+    Execute the selected MVPD model and average analysis across runs.
+
+    INPUT FORMAT
+    inputinfo - model input info structure
+    params - model parameters structure
+    """
+
     # create output folder if not exists
     if not os.path.exists(inputinfo.results_save_dir):
            os.mkdir(inputinfo.results_save_dir)
