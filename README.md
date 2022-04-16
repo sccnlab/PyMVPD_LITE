@@ -96,6 +96,25 @@ Step 3 - Analysis Execution
 model_exec.MVPD_exec(inputinfo, params)
 ```
 ### Required Input information 
+- **inputinfo.sub**
+  - This variable specifies the subject whose data are to be analyzed.
+- **input.filepath_func**
+  - This variable specifies the list of paths to the directories containing processed functional data.
+- **inputinfo.filepath_mask1**
+  - This variable specifies the path to the directory containing the predictor ROI mask.
+- **inputinfo.filepath_mask2**
+  - This variable specifies the path to the directory containing the target ROI mask.
+- **inputinfo.roidata_save_dir**
+  - This variable specifies the path to the directory where the extracted functional data will be saved.
+- **inputinfo.results_save_dir**
+  - This variable specifies the path to the directory where the results will be saved.
+- **inputinfo.save_prediction** 
+  - This variable specifies whether to save predicted timecourses in the target ROI.
+
+### List of Model Parameters
+
+NOTICE: Remember to set the value of the parameter manually if you do not want to use the default value.
+
 - General model parameters
   - **params.leave_k**
     - This parameter determines the number of leave out runs in cross-validation.
@@ -133,26 +152,6 @@ model_exec.MVPD_exec(inputinfo, params)
     - This parameter determines the array of regularization strength values to try in the cross-validation for Ridge regression.
     - It is only used if you are using a linear RidgeCV regression model by setting "params.mode_class='LR', params.lin_reg=True, params.reg_type='RidgeCV'".
     - The default array is [0.1, 1.0, 10.0].
-
-- **inputinfo.sub**
-  - This variable specifies the subject whose data are to be analyzed.
-- **input.filepath_func**
-  - This variable specifies the list of paths to the directories containing processed functional data.
-- **inputinfo.filepath_mask1**
-  - This variable specifies the path to the directory containing the predictor ROI mask.
-- **inputinfo.filepath_mask2**
-  - This variable specifies the path to the directory containing the target ROI mask.
-- **inputinfo.roidata_save_dir**
-  - This variable specifies the path to the directory where the extracted functional data will be saved.
-- **inputinfo.results_save_dir**
-  - This variable specifies the path to the directory where the results will be saved.
-- **inputinfo.save_prediction** 
-  - This variable specifies whether to save predicted timecourses in the target ROI.
-
-### List of Model Parameters
-
-NOTICE: Remember to set the value of the parameter manually if you do not want to use the default value.
-
 
 ## Citation
 PyMVPD has been used in:
