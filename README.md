@@ -95,7 +95,7 @@ Step 3 - Analysis Execution
 ```
 model_exec.MVPD_exec(inputinfo, params)
 ```
-### Required Input information 
+### Required Input Information 
 - **inputinfo.sub**
   - This variable specifies the subject whose data are to be analyzed.
 - **input.filepath_func**
