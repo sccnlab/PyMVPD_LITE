@@ -1,9 +1,9 @@
-"""
-Check the validity of parameters.
-"""
 from mvpdlite.custom_func import dimred_custom
 
 def params_check(params):
+    """
+    Check the validity of parameters.
+    """
     # check dimensionality reduction
     try:
        params.dim_reduction
