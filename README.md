@@ -6,16 +6,17 @@ This is a lite version of [PyMVPD](https://github.com/sccnlab/PyMVPD) to model t
 
 ## MVPD Model Family
 1. Linear Regression (LR) Models
+
 Available built-in model components:
 * Dimensionality reduction: principal component analysis ([PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html)), independent component analysis ([ICA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html))
-* Regularization: [Lasso](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html) (L1), [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html) (L2), [RidgeCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html) (L2 with build-in cross-validation)
+* Regularization: [Lasso](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html) (L1), [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html) (L2), [RidgeCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html) (L2 with built-in cross-validation)
 * Cross validation: leave k run out
 
   Example LR models:
   * [L2_LR](https://github.com/sccnlab/PyMVPD_LITE/tree/main/exp/run_MVPD_L2_LR.py): linear regression model with L2 regularization
   * [PCA_LR](https://github.com/sccnlab/PyMVPD_LITE/tree/main/exp/run_MVPD_PCA_LR.py): linear regression model with PCA but no regularization
 
-In addition to the above build-in functions, you can also customize your own functions by adding scripts under [mvpdlite/custom_func](https://github.com/sccnlab/PyMVPD_LITE/tree/main/mvpdlite/custom_func).
+In addition to the above built-in functions, you can also customize your own functions by adding scripts under [mvpdlite/custom_func](https://github.com/sccnlab/PyMVPD_LITE/tree/main/mvpdlite/custom_func).
 
 ## Workflow
 <img src="/PyMVPD_LITE_workflow.png" width="750"/>
