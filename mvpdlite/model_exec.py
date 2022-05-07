@@ -1,4 +1,5 @@
 import os, sys
+import pickle
 from datetime import datetime
 from mvpdlite.params_check import params_check
 from mvpdlite.MVPD_lin_reg import run_lin_reg
@@ -49,3 +50,7 @@ def MVPD_exec(inputinfo, params):
     log_file.write("model params:\n")
     log_file.write(str(vars(params))) 
     log_file.close()
+
+    # store inputinfo & params as pickle for replication
+    pickle.dump((vars(inputinfo), vars(params)), open(inputinfo.results_save_dir+date+"_variables.pkl", "wb"))
+
