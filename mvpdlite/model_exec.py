@@ -19,7 +19,8 @@ def MVPD_exec(inputinfo, params):
        params.mode_class - the general class of MVPD model to be used
 
     OUTPUT FORMAT
-    logfile - xxx_log.txt
+    logfile - TIMESTAMP_log.txt
+    inputinfo+params variables - TIMESTAMP_variables.pkl
     """
     # create output folder if not exists
     if not os.path.exists(inputinfo.results_save_dir):
